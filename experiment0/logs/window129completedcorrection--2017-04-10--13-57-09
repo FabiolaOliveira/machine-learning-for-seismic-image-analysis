@@ -1,0 +1,654 @@
+window129completedcorrection
+
+2017-04-10--13-57-09
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+{
+
+"commandline":
+curl localhost:80/login -c digits.cookie -XPOST -F username=giuliano
+
+"returncode":
+0
+
+"stdout":
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href="/">/</a>.  If not click the link.
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   360  100   209  100   151  86506  62499 --:--:-- --:--:-- --:--:--  204k
+
+
+}
+
+obtaining dataset from nvidia digits server
+{
+
+"commandline":
+curl localhost:80/datasets/images/classification.json -b digits.cookie -XPOST -F folder_train=/home/giuliano/quake-n-code/experiment0/inputs/train--experiment0--window129-corrected--2017-04-03--17-59-29/ -F encoding=png -F resize_channels=1 -F resize_height=129 -F resize_width=129 -F method=folder -F dataset_name=window129completedcorrection--2017-04-10--13-57-09
+
+"returncode":
+0
+
+"stdout":
+{
+  "id": "20170410-135709-b137",
+  "name": "window129completedcorrection--2017-04-10--13-57-09",
+  "status": "Initialized"
+}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  1047  100   125  100   922    235   1740 --:--:-- --:--:-- --:--:--  1742
+
+
+}
+{
+
+"commandline":
+curl localhost:80/datasets/20170410-135709-b137/status
+
+"returncode":
+0
+
+"stdout":
+{"status": "Done", "type": "Image Classification Dataset", "name": "window129completedcorrection--2017-04-10--13-57-09", "error": null}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   135  100   135    0     0  35183      0 --:--:-- --:--:-- --:--:-- 67500
+
+
+}
+{
+
+"commandline":
+curl localhost:80/datasets/20170410-135709-b137.json
+
+"returncode":
+0
+
+"stdout":
+{
+  "CreateDbTasks": [
+    {
+      "backend": "lmdb",
+      "compression": "none",
+      "encoding": "png",
+      "entries": 28,
+      "image_channels": 1,
+      "image_height": 129,
+      "image_width": 129,
+      "name": "Create DB (train)"
+    },
+    {
+      "backend": "lmdb",
+      "compression": "none",
+      "encoding": "png",
+      "entries": 9,
+      "image_channels": 1,
+      "image_height": 129,
+      "image_width": 129,
+      "name": "Create DB (val)"
+    }
+  ],
+  "ParseFolderTasks": [
+    {
+      "label_count": 2,
+      "name": "Parse Folder (train/val)",
+      "test_count": 0,
+      "train_count": 28,
+      "val_count": 9
+    }
+  ],
+  "directory": "/usr/share/digits/digits/jobs/20170410-135709-b137",
+  "id": "20170410-135709-b137",
+  "name": "window129completedcorrection--2017-04-10--13-57-09",
+  "status": "Done"
+}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   839  100   839    0     0   167k      0 --:--:-- --:--:-- --:--:--  273k
+
+
+}
+{
+
+"commandline":
+curl localhost:80/index.json
+
+"returncode":
+0
+
+"stdout":
+{
+  "datasets": [
+    {
+      "id": "20170410-135709-b137",
+      "name": "window129completedcorrection--2017-04-10--13-57-09",
+      "status": "Done"
+    },
+    {
+      "id": "20170410-124659-c068",
+      "name": "experiment0--giuliano--2017-04-10--12-46-59",
+      "status": "Done"
+    },
+    {
+      "id": "20170320-114415-1789",
+      "name": "experiment0--2017-03-20--11-44-15--window17",
+      "status": "Done"
+    },
+    {
+      "id": "20170320-110934-7ce6",
+      "name": "experiment0--2017-03-20--11-09-33--window17",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-155344-c2bc",
+      "name": "experiment0--2017-03-15--15-53-44",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-155202-511a",
+      "name": "experiment0--2017-03-15--15-52-02",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-154858-dce0",
+      "name": "experiment0--2017-03-15--15-48-58",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-154144-b3e6",
+      "name": "experiment0--2017-03-15--15-41-44",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-154101-7f80",
+      "name": "experiment0--2017-03-15--15-41-01",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-151528-0536",
+      "name": "experiment0--2017-03-15--15-15-28",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-151328-11ec",
+      "name": "experiment0--2017-03-15--15-13-28",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-145314-b2d5",
+      "name": "experiment0--2017-03-15--14-53-14",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-130532-9b98",
+      "name": "experiment0--2017-03-15--13-05-31",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-124820-1631",
+      "name": "experiment0--2017-03-15--12-47-39",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-102727-7a3e",
+      "name": "experiment0--2017-03-15--10-27-26",
+      "status": "Done"
+    }
+  ],
+  "jobs_dir": "/usr/share/digits/digits/jobs",
+  "models": [
+    {
+      "dataset_id": "20170410-124659-c068",
+      "id": "20170410-124710-feef",
+      "name": "experiment0--giuliano--2017-04-10--12-46-59",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170320-114415-1789",
+      "id": "20170320-114419-f613",
+      "name": "experiment0--2017-03-20--11-44-15--window17",
+      "status": "Error"
+    },
+    {
+      "dataset_id": "20170320-110934-7ce6",
+      "id": "20170320-110937-eb39",
+      "name": "experiment0--2017-03-20--11-09-33--window17",
+      "status": "Error"
+    },
+    {
+      "dataset_id": "20170315-155344-c2bc",
+      "id": "20170315-155348-2847",
+      "name": "experiment0--2017-03-15--15-53-44",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-155202-511a",
+      "id": "20170315-155207-2030",
+      "name": "experiment0--2017-03-15--15-52-02",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-154858-dce0",
+      "id": "20170315-154902-0512",
+      "name": "experiment0--2017-03-15--15-48-58",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-154144-b3e6",
+      "id": "20170315-154147-9d68",
+      "name": "experiment0--2017-03-15--15-41-44",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-154101-7f80",
+      "id": "20170315-154106-6e51",
+      "name": "experiment0--2017-03-15--15-41-01",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-151528-0536",
+      "id": "20170315-151533-e2f4",
+      "name": "experiment0--2017-03-15--15-15-28",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-151328-11ec",
+      "id": "20170315-151332-b546",
+      "name": "experiment0--2017-03-15--15-13-28",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-145314-b2d5",
+      "id": "20170315-145320-8699",
+      "name": "experiment0--2017-03-15--14-53-14",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-130532-9b98",
+      "id": "20170315-130535-b19a",
+      "name": "experiment0--2017-03-15--13-05-31",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-124820-1631",
+      "id": "20170315-124958-b9a5",
+      "name": "experiment0--2017-03-15--12-47-39",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-102727-7a3e",
+      "id": "20170315-120934-b880",
+      "name": "experiment0-rodado-manualmente",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-102727-7a3e",
+      "id": "20170315-102731-257b",
+      "name": "experiment0--2017-03-15--10-27-26",
+      "status": "Done"
+    }
+  ],
+  "version": "4.0.0"
+}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  4535  100  4535    0     0   771k      0 --:--:-- --:--:-- --:--:-- 1107k
+
+
+}
+
+obtaining model from nvidia digits server
+{
+
+"commandline":
+curl localhost:80/models/images/classification.json -b digits.cookie -XPOST -F method=standard -F standard_networks=lenet -F framework=caffe -F train_epochs=30 -F solver_type=SGD -F learning_rate=0.01 -F use_mean=image -F dataset=20170410-135709-b137 -F model_name=window129completedcorrection--2017-04-10--13-57-09
+
+"returncode":
+0
+
+"stdout":
+{
+  "dataset_id": "20170410-135709-b137",
+  "id": "20170410-135713-c65b",
+  "name": "window129completedcorrection--2017-04-10--13-57-09",
+  "status": "Initialized"
+}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  1207  100   165  100  1042    310   1959 --:--:-- --:--:-- --:--:--  1966
+
+
+}
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+
+waiting for model to finish running. please remain calm
+{
+
+"commandline":
+curl localhost:80/models/20170410-135713-c65b.json
+
+"returncode":
+0
+
+"stdout":
+{
+  "dataset_id": "20170410-135709-b137",
+  "directory": "/usr/share/digits/digits/jobs/20170410-135713-c65b",
+  "id": "20170410-135713-c65b",
+  "name": "window129completedcorrection--2017-04-10--13-57-09",
+  "snapshots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "status": "Done"
+}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   479  100   479    0     0   244k      0 --:--:-- --:--:-- --:--:--  467k
+
+
+}
+{
+
+"commandline":
+curl localhost:80/index.json
+
+"returncode":
+0
+
+"stdout":
+{
+  "datasets": [
+    {
+      "id": "20170410-135709-b137",
+      "name": "window129completedcorrection--2017-04-10--13-57-09",
+      "status": "Done"
+    },
+    {
+      "id": "20170410-124659-c068",
+      "name": "experiment0--giuliano--2017-04-10--12-46-59",
+      "status": "Done"
+    },
+    {
+      "id": "20170320-114415-1789",
+      "name": "experiment0--2017-03-20--11-44-15--window17",
+      "status": "Done"
+    },
+    {
+      "id": "20170320-110934-7ce6",
+      "name": "experiment0--2017-03-20--11-09-33--window17",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-155344-c2bc",
+      "name": "experiment0--2017-03-15--15-53-44",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-155202-511a",
+      "name": "experiment0--2017-03-15--15-52-02",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-154858-dce0",
+      "name": "experiment0--2017-03-15--15-48-58",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-154144-b3e6",
+      "name": "experiment0--2017-03-15--15-41-44",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-154101-7f80",
+      "name": "experiment0--2017-03-15--15-41-01",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-151528-0536",
+      "name": "experiment0--2017-03-15--15-15-28",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-151328-11ec",
+      "name": "experiment0--2017-03-15--15-13-28",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-145314-b2d5",
+      "name": "experiment0--2017-03-15--14-53-14",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-130532-9b98",
+      "name": "experiment0--2017-03-15--13-05-31",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-124820-1631",
+      "name": "experiment0--2017-03-15--12-47-39",
+      "status": "Done"
+    },
+    {
+      "id": "20170315-102727-7a3e",
+      "name": "experiment0--2017-03-15--10-27-26",
+      "status": "Done"
+    }
+  ],
+  "jobs_dir": "/usr/share/digits/digits/jobs",
+  "models": [
+    {
+      "dataset_id": "20170410-135709-b137",
+      "id": "20170410-135713-c65b",
+      "name": "window129completedcorrection--2017-04-10--13-57-09",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170410-124659-c068",
+      "id": "20170410-124710-feef",
+      "name": "experiment0--giuliano--2017-04-10--12-46-59",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170320-114415-1789",
+      "id": "20170320-114419-f613",
+      "name": "experiment0--2017-03-20--11-44-15--window17",
+      "status": "Error"
+    },
+    {
+      "dataset_id": "20170320-110934-7ce6",
+      "id": "20170320-110937-eb39",
+      "name": "experiment0--2017-03-20--11-09-33--window17",
+      "status": "Error"
+    },
+    {
+      "dataset_id": "20170315-155344-c2bc",
+      "id": "20170315-155348-2847",
+      "name": "experiment0--2017-03-15--15-53-44",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-155202-511a",
+      "id": "20170315-155207-2030",
+      "name": "experiment0--2017-03-15--15-52-02",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-154858-dce0",
+      "id": "20170315-154902-0512",
+      "name": "experiment0--2017-03-15--15-48-58",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-154144-b3e6",
+      "id": "20170315-154147-9d68",
+      "name": "experiment0--2017-03-15--15-41-44",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-154101-7f80",
+      "id": "20170315-154106-6e51",
+      "name": "experiment0--2017-03-15--15-41-01",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-151528-0536",
+      "id": "20170315-151533-e2f4",
+      "name": "experiment0--2017-03-15--15-15-28",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-151328-11ec",
+      "id": "20170315-151332-b546",
+      "name": "experiment0--2017-03-15--15-13-28",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-145314-b2d5",
+      "id": "20170315-145320-8699",
+      "name": "experiment0--2017-03-15--14-53-14",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-130532-9b98",
+      "id": "20170315-130535-b19a",
+      "name": "experiment0--2017-03-15--13-05-31",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-124820-1631",
+      "id": "20170315-124958-b9a5",
+      "name": "experiment0--2017-03-15--12-47-39",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-102727-7a3e",
+      "id": "20170315-120934-b880",
+      "name": "experiment0-rodado-manualmente",
+      "status": "Done"
+    },
+    {
+      "dataset_id": "20170315-102727-7a3e",
+      "id": "20170315-102731-257b",
+      "name": "experiment0--2017-03-15--10-27-26",
+      "status": "Done"
+    }
+  ],
+  "version": "4.0.0"
+}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  4719  100  4719    0     0  2120k      0 --:--:-- --:--:-- --:--:-- 4608k
+
+
+}
+
+generating class probability image from the classified test set
+closing this instance with an exception:
+<class 'json.decoder.JSONDecodeError'>
+Expecting value: line 1 column 1 (char 0)
+<traceback object at 0x7fea792726c8>

@@ -1,0 +1,32 @@
+"""
+Various modules/scripts with helpful functions.
+
+dumptable.py, maketable.py, plot.py, pylga.py, pymei.py:
+	Scripts provided by the Applied Geophysics Group. 
+	pymei is useful for reading SEGY and SU files with the 'load' function,
+	which you can use to obtain a list of Trace objects (by iterating over the object returned by pymei.load).
+	
+	The Trace objects have useful attributes: 
+	(note: this could be all wrong. the GGA like to keep an air of mystery about this whole thing)
+
+		data (has a sequence of ns 4 byte floats representing the trace amplitudes recorded during seismic data acquisition)
+		gx (x coordinate of sensor position for the given trace)
+		gy (y coordinate of sensor position)
+		sx (x coordinate of source position)
+		sy (y coordinate of source position)
+		mx (x coordinate of midpoint between source and sensor)
+		my (y coordinate of midpoint between source and sensor)
+		hx (x coordinate of half-displacement between source and sensor)
+		hy (y coordinate of half-displacement between source and sensor)
+		cdp (index of a common depth point)
+		ns (number of samples in trace)
+		dt (sample interval in seconds)
+
+proj_utilities.py:
+	Various utility functions for running shell commands, printing stuff, loading seismic data, 
+	using the NVIDIA Digits (JSON-based) "API", etc.
+
+"""
+
+
+	

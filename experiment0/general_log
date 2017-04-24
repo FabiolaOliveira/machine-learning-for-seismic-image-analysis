@@ -1,0 +1,414 @@
+----------------------------------------------------------------------------------------------------experiment0-window33-corrected
+
+2017-04-03--13-41-43
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'TypeError'>
+imsave() missing 1 required positional argument: 'arr'
+<traceback object at 0x7fe23cd55fc8>
+---------------------------------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+experiment0--window17-corrected
+
+2017-04-03--17-40-27
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+experiment0--window17-corrected
+
+2017-04-03--17-41-07
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'FileNotFoundError'>
+[Errno 2] No such file or directory: 'inputs/test--2017-03-20--11-46-51--window17//trace8/predictions'
+<traceback object at 0x7f90ca010048>
+----------------------------------------------------------------------------------------------------
+experiment0--window17-corrected
+
+2017-04-03--17-55-07
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'json.decoder.JSONDecodeError'>
+Expecting value: line 1 column 1 (char 0)
+<traceback object at 0x7f48279d0108>
+----------------------------------------------------------------------------------------------------
+experiment0--window49-corrected
+
+2017-04-03--17-56-47
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+experiment0--window65-corrected
+
+2017-04-03--17-58-25
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+experiment0--window129-corrected
+
+2017-04-03--17-59-29
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'json.decoder.JSONDecodeError'>
+Expecting value: line 1 column 1 (char 0)
+<traceback object at 0x7f413df18608>
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--11-36-33
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'bdb.BdbQuit'>
+
+<traceback object at 0x7f37cc65d4c8>
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--11-37-41
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'json.decoder.JSONDecodeError'>
+Expecting value: line 1 column 1 (char 0)
+<traceback object at 0x7fb0b745cec8>
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--12-37-49
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyError'>
+'id'
+<traceback object at 0x7f46b0b34e88>
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--12-40-35
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyError'>
+'id'
+<traceback object at 0x7f147c02f5c8>
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--12-46-59
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'json.decoder.JSONDecodeError'>
+Expecting value: line 1 column 1 (char 0)
+<traceback object at 0x7fb6af702dc8>
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--12-56-17
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--13-53-15
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--13-54-48
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+window129completedcorrection
+
+2017-04-10--13-57-09
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'json.decoder.JSONDecodeError'>
+Expecting value: line 1 column 1 (char 0)
+<traceback object at 0x7fea792726c8>
+----------------------------------------------------------------------------------------------------
+experiment0--giuliano
+
+2017-04-10--14-07-04
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+window17onemoretime
+
+2017-04-10--14-46-36
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyError'>
+'id'
+<traceback object at 0x7f6ca173f5c8>
+----------------------------------------------------------------------------------------------------
+window129onemoretime
+
+2017-04-10--14-59-09
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+window129-corrected-doneagain
+
+2017-04-10--15-09-12
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'E' is not defined
+<traceback object at 0x7fe5dddfc6c8>
+----------------------------------------------------------------------------------------------------
+window129-corrected-doneagain
+
+2017-04-10--15-15-24
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyboardInterrupt'>
+
+<traceback object at 0x7f3e68ca0708>
+----------------------------------------------------------------------------------------------------
+window129-corrected-doneagain
+
+2017-04-10--15-23-46
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyboardInterrupt'>
+
+<traceback object at 0x7f22018106c8>
+----------------------------------------------------------------------------------------------------
+window129-corrected-doneagain
+
+2017-04-10--15-39-56
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyboardInterrupt'>
+
+<traceback object at 0x7f7bf9b00a48>
+----------------------------------------------------------------------------------------------------
+window129-corrected-doneagain
+
+2017-04-10--15-45-51
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+window17-corrected-version2
+
+2017-04-17--10-51-38
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+noisy-sunset-sn=0.5
+
+2017-04-17--22-59-30
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+noisy-sunset-sn=1
+
+2017-04-17--23-00-15
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+noisy-sunset-sn=16
+
+2017-04-17--23-01-09
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+noisy-sunset-sn=8
+
+2017-04-17--23-00-57
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+noisy-sunset-sn=4
+
+2017-04-17--23-00-36
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+noisy-sunset-sn=2
+
+2017-04-17--23-00-26
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+experiment0--giuliano
+
+2017-04-10--12-40-35
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+obtaining dataset from nvidia digits server
+{
+
+"commandline":
+curl localhost:80/datasets/images/classification.json -b digits.cookie -XPOST -F folder_train=inputs/train--experiment0--window17-corrected--2017-04-03--17-55-07/ -F encoding=png -F resize_channels=1 -F resize_height=17 -F resize_width=17 -F method=folder -F dataset_name=experiment0--giuliano--2017-04-10--12-40-35
+
+"returncode":
+0
+
+"stdout":
+{
+  "errors": {
+    "folder_train": [
+      "Folder does not exist"
+    ]
+  }
+}
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   951  100    79  100   872  26925   290k --:--:-- --:--:-- --:--:--  425k
+
+
+}
+closing this instance with an exception:
+<class 'KeyError'>
+'id'
+<traceback object at 0x7f147c02f5c8>

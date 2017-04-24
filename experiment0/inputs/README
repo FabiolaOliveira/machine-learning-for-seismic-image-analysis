@@ -1,0 +1,36 @@
+Various inputs to the image 'slice and dice' experiment (AKA experiment0).
+
+- original-event-points, original-noevent-points
+	Files provided by a mysterious source within the GGA/CEPETRO. They contain picks (selected points)
+	of 'event' and 'no event' locations, respectively, for sunset-stackeds.sgy. In each file, there are 2 columns of floats with (CDP, time (ms)) values for each point.
+
+- event-points.json, noevent-points.json
+	The picks provided by GGA/CEPETRO, now represented in a more descriptive JSON format, where the points are in the more useful
+	[[time_index1, trace_index1], [time_index2, trace_index2], ...] form.
+
+- stack.su
+	Seems very similar to sunset-stacked.sgy. At least the scale is different though
+
+- sunset-stacked.sgy
+	CMP stacked image (as far as I even understand what that means) 
+	of seismic amplitudes obtained from a synthetic (simulated) seabed.
+	The shape of the seismic events involved is said to resemble a 'sunset'. 
+	We use this image (the data herein) for experiment0.
+
+- noisy-sunset-images/*.su
+	Images generated from sunset-stacked.sgy via:
+	```bash
+	segyread tape=$SGY_INPUT_FILE | segyclean | suaddnoise -sn=$SIGNAL_TO_NOISE_RATIO > $OUTPUT_FILE
+	```
+	For more information look at the documentation for suaddnoise.
+
+- *.png
+	Various visualizations of input data. These are all generated from Jupyter Notebooks in the code folder.
+	I find that it helps to view them first and then save from the matplotlib display window
+
+- {train--,test--}*
+	Folders with the training and test images, respectively, for experiment zero.
+	Annotated with a name and a creation timestamp.
+	Training folders have a subfolder for each class ('noevent', 'event')
+	Test folders have traceX to traceY subfolders. Each one has the test images and a (JSON formatted) prediction results file (after classification has been done by NVIDIA DIGITS, that is). The test folder itself has a
+	file with all the paths of all the test images

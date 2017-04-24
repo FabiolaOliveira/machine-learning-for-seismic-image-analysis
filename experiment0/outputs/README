@@ -1,0 +1,8 @@
+noisy-sunset-*
+	These are the results of classifying the noisy versions of sunset-stacked.sgy
+
+experiment0-window<window size>-corrected--*
+	These are the results of classifying the original sunset-stacked.sgy.
+	NOTE: the ones without the 'corrected' annotation in the title are the
+		classifications for which I used the wrong trace coordinates (shifted by 48 pixels)!
+		(and for which the network nonetheless did a pretty fair job)

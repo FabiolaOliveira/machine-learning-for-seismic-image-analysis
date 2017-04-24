@@ -1,0 +1,14 @@
+experiment0--giuliano
+
+2017-04-10--11-37-41
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+generating class probability image from the classified test set
+closing this instance with an exception:
+<class 'json.decoder.JSONDecodeError'>
+Expecting value: line 1 column 1 (char 0)
+<traceback object at 0x7fb0b745cec8>

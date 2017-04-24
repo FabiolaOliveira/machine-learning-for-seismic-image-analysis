@@ -1,0 +1,37 @@
+experiment0--giuliano
+
+2017-04-10--11-36-33
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+{
+
+"commandline":
+curl localhost:80/login -c digits.cookie -XPOST -F username=giuliano
+
+"returncode":
+0
+
+"stdout":
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href="/">/</a>.  If not click the link.
+
+"stderr":
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   360  100   209  100   151   1327    958 --:--:-- --:--:-- --:--:--  1339
+
+
+}
+
+generating class probability image from the classified test set
+closing this instance with an exception:
+<class 'bdb.BdbQuit'>
+
+<traceback object at 0x7f37cc65d4c8>
