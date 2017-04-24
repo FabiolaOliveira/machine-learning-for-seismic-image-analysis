@@ -1,0 +1,14 @@
+test-window11-corrected
+
+2017-04-24--10-53-15
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+obtaining images for training
+closing this instance with an exception:
+<class 'NameError'>
+name 'training_points' is not defined
+<traceback object at 0x7fa35a1fba08>

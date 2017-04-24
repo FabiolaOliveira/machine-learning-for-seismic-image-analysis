@@ -412,3 +412,90 @@ successfully executed this instance of experiment0
 
 
 
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-43-51
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-44-58
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-45-37
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-45-55
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'self' is not defined
+<traceback object at 0x7ff9eb03a948>
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-47-27
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'SystemExit'>
+-1
+<traceback object at 0x7fe3bac6c9c8>
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-49-30
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'AttributeError'>
+'Experiment0' object has no attribute 'no_event_points'
+<traceback object at 0x7f0d9df79a08>
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-53-15
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'training_points' is not defined
+<traceback object at 0x7fa35a1fba08>
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-55-39
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'AttributeError'>
+module 'scipy' has no attribute 'misc'
+<traceback object at 0x7f111f76a9c8>
+----------------------------------------------------------------------------------------------------
+test-window11-corrected
+
+2017-04-24--10-59-07
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyboardInterrupt'>
+
+<traceback object at 0x7f32d68da348>

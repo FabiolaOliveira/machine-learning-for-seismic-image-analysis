@@ -1,0 +1,14 @@
+test-window11-corrected
+
+2017-04-24--10-55-39
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+obtaining images for training
+closing this instance with an exception:
+<class 'AttributeError'>
+module 'scipy' has no attribute 'misc'
+<traceback object at 0x7f111f76a9c8>

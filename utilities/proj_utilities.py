@@ -381,7 +381,7 @@ class NVDigits_API():
         wait_hook_function, if provided, is called with a wait message
         (it could throw an exception to abort the wait, for example)
         """
-
+        # TODO: error checking
         waiting = True
         while waiting:
             run_command('sleep 1')
@@ -399,7 +399,7 @@ class NVDigits_API():
         wait_hook_function, if provided, is called with a wait message
         (it could throw an exception to abort the wait, for example)
         """
-
+        # TODO: error checking
         waiting = True
         while waiting:
             run_command('sleep 10')

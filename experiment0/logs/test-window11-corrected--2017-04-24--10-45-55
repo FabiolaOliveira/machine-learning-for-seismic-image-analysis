@@ -1,0 +1,35 @@
+test-window11-corrected
+
+2017-04-24--10-45-55
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+{
+    "commandline":
+    curl localhost:80/login -c digits.cookie -XPOST -F username=giuliano
+
+"returncode":
+0
+    "stdout":
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+    <title>Redirecting...</title>
+    <h1>Redirecting...</h1>
+    <p>You should be redirected automatically to target URL: <a href="/">/</a>.  If not click the link.
+
+    "stderr":
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    
+      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    100   151    0     0  100   151      0    150  0:00:01  0:00:01 --:--:--   150
+    100   151    0     0  100   151      0     75  0:00:02  0:00:02 --:--:--    75
+    100   360  100   209  100   151    102     74  0:00:02  0:00:02 --:--:--   102
+    
+
+}
+closing this instance with an exception:
+<class 'NameError'>
+name 'self' is not defined
+<traceback object at 0x7ff9eb03a948>

@@ -1,0 +1,14 @@
+test-window11-corrected
+
+2017-04-24--10-49-30
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+obtaining images for training
+closing this instance with an exception:
+<class 'AttributeError'>
+'Experiment0' object has no attribute 'no_event_points'
+<traceback object at 0x7f0d9df79a08>

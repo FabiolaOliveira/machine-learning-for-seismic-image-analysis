@@ -24,7 +24,8 @@ experiment0 involves the following steps:
 
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy
+from scipy.misc import imread as scipy_imread, imsave as scipy_imsave
+# NOTE: SCIPY'S IMREAD IS SAVING IMAGES WITH AN UNEVEN COLOR MAP!!! (I.E. DIFFERENT FOR EACH IMAGE). CORRECT THIS
 
 import sys
 import json
@@ -33,7 +34,7 @@ import argparse
 import os
 
 import pymei as pm
-from proj_utilities import run_command, print_command_info, load_seismic_image
+from proj_utilities import run_command, print_command_info, load_seismic_image, load_seismic_picks_json_format, NVDigits_API
 
 
 class Experiment0():
@@ -81,9 +82,9 @@ class Experiment0():
 
 
         if args.image.endswith('sgy') or args.image.endswith('su'):
-            self.traces, self.img = gs_utilities.load_seismic_image(args.image)
+            self.traces, self.img = load_seismic_image(args.image)
         elif args.image.endswith('png'):
-            self.img = scipy.misc.imread(
+            self.img = scipy_imread(
                 fname=args.image,
                 flatten=True) # obtains a gray scale image
         else:
@@ -97,8 +98,8 @@ class Experiment0():
         #self.vmin = np.min(img)
 
         # set of input training points displayed in (CDP, time) columns
-        self.no_event_picks = load_seismic_picks_json_format(args.no_event_picks)
-        self.event_picks = load_seismic_picks_json_format(args.event_picks)
+        self.no_event_points = load_seismic_picks_json_format(args.no_event_picks)
+        self.event_points = load_seismic_picks_json_format(args.event_picks)
 
 
         # our interface to NVIDIA's software for demonstrating deep learning computations on a GPU (by way of BVLC Caffe)
@@ -160,7 +161,7 @@ class Experiment0():
         for example_points, class_label in [(self.no_event_points, 'noevent'), (self.event_points, 'event')]:
             
             # each training point (pick) is of the form [time sample index, trace index]
-            for i, pt in enumerate(training_points):
+            for i, pt in enumerate(example_points):
                 time_coord, trace_index = pt[0], pt[1]
 
                 # warning issued if any point is too close to the border. validity of the model of 'central pixel' called into question
@@ -181,7 +182,7 @@ class Experiment0():
                 window = self.img[tmin:tmax, cdpmin:cdpmax]
 
                 # plt seems to insist on 4 color channels! scipy.misc on the other hand seems to just normalize and save the intensities
-                scipy.misc.imsave('{}/{}/image{}-time{}-trace{}.png'.format(self.training_folder, class_label, i, time_coord, trace_index), window)
+                scipy_imsave('{}/{}/image{}-time{}-trace{}.png'.format(self.training_folder, class_label, i, time_coord, trace_index), window)
                 #plt.imsave('{}/{}/image{}-time{}-trace{}.png'.format(self.training_folder, class_label, i, time_coord, trace_index), window, cmap='gray', vmin=self.vmin, vmax=self.vmax)
 
     def create_dataset(self):
@@ -220,6 +221,8 @@ class Experiment0():
             print_command_info(query_command, file=self.log_file)
 
     def log_message(self, message):
+        if self.verbose:
+            print('\n' + message)
         self.log_file.write('\n' + message + '\n')
 
     def create_model(self):
@@ -274,7 +277,7 @@ class Experiment0():
                     image_filename = '{}/time{}-trace{}.png'.format(test_image_folder, time_index, trace_index)
                     
                     # plt seems to insist on 4 color channels! scipy.misc on the other hand seems to just normalize and save the intensities
-                    scipy.misc.imsave(image_filename, window)
+                    scipy_imsave(image_filename, window)
                     # plt.imsave(image_filename, window, cmap='gray', vmin=self.vmin, vmax=self.vmax)
                     
                     listofimagepaths.write('trace{}/time{}-trace{}.png'.format(trace_index, time_index, trace_index) + '\n')
@@ -408,7 +411,7 @@ if __name__ == '__main__':
         # requires source image file and event + no event picks
         if args.generate_training:
             if args.image is '' or args.event_picks is '' or args.no_event_picks is '':
-                self.log_message('Unable to proceed:\n' 
+                exp.log_message('Unable to proceed:\n' 
                     'to generate training images, a source image,'
                     ' event picks and no-event picks are required'
                 )
@@ -425,7 +428,7 @@ if __name__ == '__main__':
         if args.create_dataset:
             # requires NVIDIA DIGITS and training images divided into subfolders whose names are the class labels
             if args.generate_training is False and args.training_folder is '':
-                self.log_message('Unable to proceed:\n' 
+                exp.log_message('Unable to proceed:\n' 
                     'to generate a dataset, a folder with training images is required'
                 )
                 if args.verbose:
@@ -446,7 +449,7 @@ if __name__ == '__main__':
         if args.create_model:
             # requires NVIDIA DIGITS and a dataset
             if args.create_dataset is False and args.dataset is '':
-                self.log_message('Unable to proceed:\n' 
+                exp.log_message('Unable to proceed:\n' 
                     'to generate a model, an NVIDIA DIGITS dataset is required'
                 )
                 if args.verbose:
@@ -462,13 +465,12 @@ if __name__ == '__main__':
             if args.verbose: 
                 print('obtaining model from nvidia digits server')
             exp.model_id = exp.nvdigits.get_model_id_by_name(args.model)
-        else
 
 
         if args.generate_test is not '':
             # requires source image file
             if args.image is '':
-                self.log_message('Unable to proceed:\n' 
+                exp.log_message('Unable to proceed:\n' 
                     'to generate test images, a source image is required'
                 )
                 if args.verbose:
@@ -484,7 +486,7 @@ if __name__ == '__main__':
         if args.classify:
             # requires NVIDIA DIGITS and a test folder
             if args.generate_test is False and args.test_folder is '':
-                self.log_message('Unable to proceed:\n' 
+                exp.log_message('Unable to proceed:\n' 
                     'to classify test images, a folder with those images is required'
                 )
                 if args.verbose:
@@ -498,7 +500,7 @@ if __name__ == '__main__':
 
         # requires a test folder with a predictions file in every subfolder corresponding to a trace
         if args.generate_test is False and args.test_folder is '':
-            self.log_message('Unable to proceed:\n' 
+            exp.log_message('Unable to proceed:\n' 
                 'to classify test images, a folder with those images is required'
             )
             if args.verbose:

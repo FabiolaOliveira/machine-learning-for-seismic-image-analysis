@@ -1,0 +1,15 @@
+test-window11-corrected
+
+2017-04-24--10-47-27
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+Unable to proceed:
+to generate a dataset, a folder with training images is required
+closing this instance with an exception:
+<class 'SystemExit'>
+-1
+<traceback object at 0x7fe3bac6c9c8>
