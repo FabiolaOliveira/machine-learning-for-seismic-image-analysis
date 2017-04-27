@@ -105,6 +105,31 @@ def strip_path_from_filenames(list_of_files):
     return [re.search(select_basename, f)[1] for f in list_of_files]
 
 
+"""some image processing utilities"""
+
+def convert_gray_image_to_uint8(img):
+    """converts a numpy array of arbitrary values to values in [0, 255]
+
+    Parameters
+    ----------
+    img : ndarray
+        An array of gray image intensity values
+
+    Returns
+    -------
+    img_uint8
+        An array of uint8 obtained from img via a linear transformation
+        followed by rounding
+    """
+
+    minimum = np.min(img)
+    maximum = np.max(img)
+
+    return np.array(np.round(255 *
+                            ((img - minimum) / (maximum - minimum))),
+                    dtype=np.uint8)
+
+
 """seismic image utils"""
 
 
@@ -416,7 +441,7 @@ class NVDigits_API():
         dataset_id = None
         q = run_command(self.call_curl + '/index.json')
         for m in json.loads(q['stdout'])['datasets']:
-            if m['name'] == args.name:
+            if m['name'] == name:
                 dataset_id = m['id']
                 break
         return dataset_id
@@ -427,7 +452,7 @@ class NVDigits_API():
         model_id = None
         q = run_command(self.call_curl + '/index.json')
         for m in json.loads(q['stdout'])['models']:
-            if m['name'] == args.name:
+            if m['name'] == name:
                 model_id = m['id']
                 break
         return model_id

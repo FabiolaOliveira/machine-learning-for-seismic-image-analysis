@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 # script requires a unix-like environment
+# script expects the 'usual experiment directory structure'
 
+# recommended command line for a new experiment:
+# python3 experiment0.py -w <window size here> -n <name of instance here> -v -cd -cm -gt -gtst -cl -ne <no event picks here in JSON format> -e <event picks here in JSON format> -i <image here>
 
 """
 experiment0 involves the following steps:
@@ -25,7 +28,6 @@ experiment0 involves the following steps:
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.misc import imread as scipy_imread, imsave as scipy_imsave
-# NOTE: SCIPY'S IMREAD IS SAVING IMAGES WITH AN UNEVEN COLOR MAP!!! (I.E. DIFFERENT FOR EACH IMAGE). CORRECT THIS
 
 import sys
 import json
@@ -34,7 +36,7 @@ import argparse
 import os
 
 import pymei as pm
-from proj_utilities import run_command, print_command_info, load_seismic_image, load_seismic_picks_json_format, NVDigits_API
+from proj_utilities import run_command, print_command_info, load_seismic_image, load_seismic_picks_json_format, NVDigits_API, convert_gray_image_to_uint8
 
 
 class Experiment0():
@@ -80,9 +82,12 @@ class Experiment0():
         # flag for printing diagnostic information to stdout
         self.verbose = args.verbose
 
-
         if args.image.endswith('sgy') or args.image.endswith('su'):
             self.traces, self.img = load_seismic_image(args.image)
+            
+            # map image values to [0, 255] in {integers}
+            self.img = convert_gray_image_to_uint8(self.img)
+
         elif args.image.endswith('png'):
             self.img = scipy_imread(
                 fname=args.image,
@@ -91,16 +96,22 @@ class Experiment0():
             raise Exception('unknown format: only sgy, su and png accepted')
 
         # maximum sample value, to be used in color maps
-        self.vmax = np.max(np.abs(self.img))
+        #self.vmax = np.max(np.abs(self.img))
 
         # minimum value to be used in color maps
-        self.vmin = -self.vmax # preferred since it maps zero to zero
+        #self.vmin = -self.vmax # preferred since it maps zero to zero
         #self.vmin = np.min(img)
 
+    
         # set of input training points displayed in (CDP, time) columns
-        self.no_event_points = load_seismic_picks_json_format(args.no_event_picks)
-        self.event_points = load_seismic_picks_json_format(args.event_picks)
+        self.no_event_picks = load_seismic_picks_json_format(args.no_event_picks)
+        self.event_picks = load_seismic_picks_json_format(args.event_picks)
 
+        # path where training images will be placed:
+        self.training_folder = os.path.realpath(args.training_folder or (self.INPUT_FOLDER + 'train--' + self.name + '--' + self.timestamp))
+
+        # path where the test images will be placed:
+        self.test_folder = os.path.realpath(args.test_folder or (self.INPUT_FOLDER + 'test--' + self.name + '--' + self.timestamp))
 
         # our interface to NVIDIA's software for demonstrating deep learning computations on a GPU (by way of BVLC Caffe)
         self.nvdigits = NVDigits_API(nvdigits_host, nvdigits_port)
@@ -108,11 +119,6 @@ class Experiment0():
         # necessary for logging in to the server for certain operations
         self.cookie_file = args.cookie_file
 
-        # path where training images will be placed:
-        self.training_folder = os.path.realpath(args.training_folder or (self.INPUT_FOLDER + 'train--' + self.name + '--' + self.timestamp))
-
-        # path where the test images will be placed:
-        self.test_folder = os.path.realpath(args.test_folder or (self.INPUT_FOLDER + 'test--' + self.name + '--' + self.timestamp))
 
     # context manager protocol is used since we manage an open log file
     def __enter__(self):
@@ -158,7 +164,7 @@ class Experiment0():
         run_command('mkdir -p ' + self.training_folder + '/event')
 
         # Data with 'non events' followed by labeled seismic events:
-        for example_points, class_label in [(self.no_event_points, 'noevent'), (self.event_points, 'event')]:
+        for example_points, class_label in [(self.no_event_picks, 'noevent'), (self.event_picks, 'event')]:
             
             # each training point (pick) is of the form [time sample index, trace index]
             for i, pt in enumerate(example_points):
@@ -280,7 +286,7 @@ class Experiment0():
                     scipy_imsave(image_filename, window)
                     # plt.imsave(image_filename, window, cmap='gray', vmin=self.vmin, vmax=self.vmax)
                     
-                    listofimagepaths.write('trace{}/time{}-trace{}.png'.format(trace_index, time_index, trace_index) + '\n')
+                    listofimagepaths.write('time{}-trace{}.png'.format(time_index, trace_index) + '\n')
 
             if self.verbose:
                 print('finished with test images folder {}'.format(test_image_folder))
@@ -297,7 +303,7 @@ class Experiment0():
             while not success:
                 c = self.nvdigits.classify_many(
                     model_id=self.model_id,
-                    image_folder=self.test_image_folder,
+                    image_folder=test_image_folder,
                     image_list=image_paths_file # each line has the path for a test image
                     #predictions_file=predictions_file
                 )
@@ -389,9 +395,9 @@ if __name__ == '__main__':
     
     parser.add_argument('-o', '--output-image', default='', help='path of probability map image to be saved. default is <name>--<timestamp>')
 
-    parser.add_argument('-ne', '--no-event-picks', default='', help='file with time sample and trace indices of selected "no event" points in the image')
-    parser.add_argument('-e', '--event-picks', default='', help='file with time sample and trace indices of selected "event" points in the image')
-    parser.add_argument('-i', '--image', help='SEGY, SU, or PNG image on which to perform experiment0')
+    parser.add_argument('-ne', '--no-event-picks',  required=True, help='file with time sample and trace indices of selected "no event" points in the image')
+    parser.add_argument('-e', '--event-picks',  required=True, help='file with time sample and trace indices of selected "event" points in the image')
+    parser.add_argument('-i', '--image', required=True, help='SEGY, SU, or PNG image on which to perform experiment0')
     
     args = parser.parse_args()
 
@@ -460,14 +466,14 @@ if __name__ == '__main__':
             if args.verbose: 
                 print('creating model from nvidia digits server')
             exp.create_model()
-        elif arg.model != '':
+        elif args.model != '':
             # requires NVIDIA DIGITS
             if args.verbose: 
                 print('obtaining model from nvidia digits server')
             exp.model_id = exp.nvdigits.get_model_id_by_name(args.model)
 
 
-        if args.generate_test is not '':
+        if args.generate_test:
             # requires source image file
             if args.image is '':
                 exp.log_message('Unable to proceed:\n' 

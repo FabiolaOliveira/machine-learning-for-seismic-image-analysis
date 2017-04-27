@@ -1,0 +1,14 @@
+test-window13-corrected
+
+2017-04-27--16-30-01
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+obtaining images for testing
+closing this instance with an exception:
+<class 'KeyboardInterrupt'>
+
+<traceback object at 0x7f0c994a0548>

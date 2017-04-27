@@ -1,0 +1,12 @@
+test-window13-corrected
+
+2017-04-27--15-25-07
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+closing this instance with an exception:
+<class 'NameError'>
+name 'arg' is not defined
+<traceback object at 0x7f11733f9a88>

@@ -499,3 +499,148 @@ closing this instance with an exception:
 <class 'KeyboardInterrupt'>
 
 <traceback object at 0x7f32d68da348>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-24--11-06-52
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'AttributeError'>
+'Experiment0' object has no attribute 'test_image_folder'
+<traceback object at 0x7fe510d10688>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--13-59-01
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-19-55
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-21-51
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'args' is not defined
+<traceback object at 0x7f62b5311488>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-22-45
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'args' is not defined
+<traceback object at 0x7f337cdb5488>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-22-49
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'args' is not defined
+<traceback object at 0x7f4f09d4a4c8>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-25-07
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'arg' is not defined
+<traceback object at 0x7f11733f9a88>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-25-24
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'NameError'>
+name 'args' is not defined
+<traceback object at 0x7f21d6692088>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-25-59
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'AttributeError'>
+'Experiment0' object has no attribute 'img'
+<traceback object at 0x7feaf051eac8>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--15-39-58
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'AttributeError'>
+'Experiment0' object has no attribute 'img'
+<traceback object at 0x7f5daf6ce0c8>
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--16-10-52
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--16-29-51
+
+logging this instance of the experiment:
+
+----------------------------------------------------------------------------------------------------
+test-window13-corrected
+
+2017-04-27--16-30-01
+
+logging this instance of the experiment:
+
+closing this instance with an exception:
+<class 'KeyboardInterrupt'>
+
+<traceback object at 0x7f0c994a0548>
+----------------------------------------------------------------------------------------------------
+window13-corrected
+
+2017-04-27--16-45-31
+
+logging this instance of the experiment:
+
+successfully executed this instance of experiment0
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

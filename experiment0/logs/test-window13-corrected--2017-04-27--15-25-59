@@ -1,0 +1,14 @@
+test-window13-corrected
+
+2017-04-27--15-25-59
+
+logging this instance of the experiment:
+
+
+obtaining cookie from nvidia digits server
+
+obtaining images for testing
+closing this instance with an exception:
+<class 'AttributeError'>
+'Experiment0' object has no attribute 'img'
+<traceback object at 0x7feaf051eac8>
