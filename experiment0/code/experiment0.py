@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
 
-# script requires a unix-like environment
-# script expects the 'usual experiment directory structure'
+# script requires a unix-like environment with access to a 1. shell, 2. nvidia digits, 3. curl
+# script expects the 'usual experiment directory structure':
+# experiment_dir (can be named anything you want)
+#   code (this script should be there!)
+#   inputs (training and test folders created here)
+#   outputs (all the output images are saved there)
+#   logs (all the individual logs are created here)
+#   general_log (log file with a record of all the times this script ran)
 
 # recommended command line for a new experiment:
 # python3 experiment0.py -w <window size here> -n <name of instance here> -v -cd -cm -gt -gtst -cl -ne <no event picks here in JSON format> -e <event picks here in JSON format> -i <image here>
+# cd creates a new NVIDIA DIGITS dataset, cm creates new NVIDIA DIGITS model, gt generates training images, gtst generates test images, cl classifies the test images using NVIDIA digits,
+# -ne and -e take files with the picks in a JSON format which is an 'object' with a 'picks' key, whose value is an 'array' of length 2 'arrays' of the form [time sample index, trace index] telling you where the picks are
+# -i takes an image (.sgy, .su, .png)
 
 """
 experiment0 involves the following steps:
 
     1. take an image (CMP stacked) of seismic amplitudes
-    2. divide it up into 2k+1 by 2k+1 windows
+    2. divide it up into windows of size w (w must be odd) centered at every possible pixel in the original image
     3. some of the windows for we which we have a class label
         ('event' or 'no event' depending on the classification of the central pixel)
         will be part of the training/validation set.
@@ -23,6 +32,7 @@ experiment0 involves the following steps:
         we will simply generate an image with a color map that reflects
         the probability of event/noevent at each pixel.
     7. we display the image
+    
 """
 
 import numpy as np

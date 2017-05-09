@@ -4,7 +4,7 @@ As documented in the docstring of the experiment0.py script,
 experiment0 involves the following steps:
 
     1. take an image (CMP stacked) of seismic amplitudes
-    2. divide it up into 2k+1 by 2k+1 windows
+    2. divide it up into windows of size w (w must be odd) centered at every possible pixel in the original image
     3. some of the windows for we which we have a class label
         ('event' or 'no event' depending on the classification of the central pixel)
         will be part of the training/validation set.
@@ -17,5 +17,5 @@ experiment0 involves the following steps:
         we will simply generate an image with a color map that reflects
         the probability of event/noevent at each pixel.
     7. we display the image
+    
 """
-

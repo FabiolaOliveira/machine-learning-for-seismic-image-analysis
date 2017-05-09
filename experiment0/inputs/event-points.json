@@ -1,1 +1,6 @@
-{"description": "event points picked by someone in the geophysics lab", "format": "[time index, trace index] pairs from the array of seismic amplitudes", "image": "sunset-stacked.sgy", "picks": [[511, 109], [904, 116], [512, 150], [1099, 161], [958, 162], [1090, 170], [1080, 185], [1078, 197], [511, 200], [1082, 206], [1011, 207], [1103, 226], [1123, 238], [509, 240], [1156, 254], [1073, 259], [1103, 283], [511, 298]]}
+{
+	"description": "event points picked by someone in the geophysics lab",
+	"format": "[time index, trace index] pairs from the array of seismic amplitudes",
+	"image": "sunset-stacked.sgy",
+	"picks": [[511, 109], [904, 116], [512, 150], [1099, 161], [958, 162], [1090, 170], [1080, 185], [1078, 197], [511, 200], [1082, 206], [1011, 207], [1103, 226], [1123, 238], [509, 240], [1156, 254], [1073, 259], [1103, 283], [511, 298]]
+}
